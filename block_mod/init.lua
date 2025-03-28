@@ -20,3 +20,31 @@ core.register_node("block_mod:wood", {
 		return false
 	end,
 })
+
+core.register_node("block_mod:carpet", {
+    description = "Hello World Carpet",
+    tiles = { {name = "carpet_2.png^[transform:R90", align_style = "world", scale = 2} },
+    groups = { choppy = 3, oddly_breakable_by_hand = 2 },
+
+    drawtype = "nodebox",
+
+    paramtype2 = "facedir",
+
+    -- Correct node_box to sit on the bottom of the block
+    node_box = {
+        type = "fixed",
+        fixed = { -0.5, -0.5, -0.5, 0.5, -0.4, 1.5 }
+    },
+
+    -- Ensure selection box matches the node_box
+    selection_box = {
+        type = "fixed",
+        fixed = { -0.5, -0.5, -0.5, 0.5, -0.4, 1.5 }
+    },
+
+    -- Ensure collision box matches the node_box
+    collision_box = {
+        type = "fixed",
+        fixed = { -0.5, -0.5, -0.5, 0.5, -0.4, 1.5 }
+    },
+})
