@@ -28,23 +28,14 @@ core.register_node("block_mod:carpet", {
 
     drawtype = "mesh",
     mesh = "carpet.obj",
-    --drawtype = "nodebox",
 
     paramtype2 = "facedir",
 
-    -- Correct node_box to sit on the bottom of the block
-    node_box = {
-        type = "fixed",
-        fixed = { -0.5, -0.5, -0.5, 1.5, -0.45, 0.5 }
-    },
-
-    -- Ensure selection box matches the node_box
     selection_box = {
         type = "fixed",
         fixed = { -0.5, -0.5, -0.5, 1.5, -0.45, 0.5 }
     },
 
-    -- Ensure collision box matches the node_box
     collision_box = {
         type = "fixed",
         fixed = { -0.5, -0.5, -0.5, 1.5, -0.45, 0.5 }
