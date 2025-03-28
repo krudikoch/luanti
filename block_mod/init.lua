@@ -5,14 +5,14 @@ core.register_node("block_mod:wood", {
 	on_dig = function(pos, node, digger)
 		local name = digger:get_player_name()
 		if name == "Paul" then
-			minetest.remove_node(pos)
+			core.remove_node(pos)
 
 			local inv = digger:get_inventory()
 			if inv:room_for_item("main", "block_mod:wood") then
 				inv:add_item("main", "block_mod:wood")
 			else
 				-- Drop as item if inventory is full
-				minetest.add_item(pos, "block_mod:wood")
+				core.add_item(pos, "block_mod:wood")
 			end
 			return true
 		end
@@ -23,28 +23,30 @@ core.register_node("block_mod:wood", {
 
 core.register_node("block_mod:carpet", {
     description = "Hello World Carpet",
-    tiles = { {name = "carpet_2.png^[transform:R90", align_style = "world", scale = 2} },
+    tiles = { "block_mod_carpet.png" },
     groups = { choppy = 3, oddly_breakable_by_hand = 2 },
 
-    drawtype = "nodebox",
+    drawtype = "mesh",
+    mesh = "carpet.obj",
+    --drawtype = "nodebox",
 
     paramtype2 = "facedir",
 
     -- Correct node_box to sit on the bottom of the block
     node_box = {
         type = "fixed",
-        fixed = { -0.5, -0.5, -0.5, 0.5, -0.4, 1.5 }
+        fixed = { -0.5, -0.5, -0.5, 1.5, -0.45, 0.5 }
     },
 
     -- Ensure selection box matches the node_box
     selection_box = {
         type = "fixed",
-        fixed = { -0.5, -0.5, -0.5, 0.5, -0.4, 1.5 }
+        fixed = { -0.5, -0.5, -0.5, 1.5, -0.45, 0.5 }
     },
 
     -- Ensure collision box matches the node_box
     collision_box = {
         type = "fixed",
-        fixed = { -0.5, -0.5, -0.5, 0.5, -0.4, 1.5 }
+        fixed = { -0.5, -0.5, -0.5, 1.5, -0.45, 0.5 }
     },
 })
