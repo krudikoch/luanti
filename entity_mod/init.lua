@@ -5,7 +5,7 @@ local entity = {
         collide_with_objects = true,
         collisionbox = {-0.3, -0.3, -0.3, 0.3, 0.3, 0.3},
         visual = "mesh",
-        visual_size = {x = 1, y = 2, z = 1},
+        visual_size = {x = 1, y = 1, z = 1},
         mesh = "Steve.obj",
         textures = {"steve.png"},
         spritediv = {x = 1, y = 1},
