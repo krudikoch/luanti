@@ -11,6 +11,8 @@ local entity = {
         spritediv = {x = 1, y = 1},
         initial_sprite_basepos = {x = 0, y = 0},
     },
+
+    message = "I got hit",
 }
 
 function entity:on_step(dtime)
@@ -32,7 +34,7 @@ function entity:on_step(dtime)
 end
 
 function entity:on_punch(hitter)
-    core.chat_send_player(hitter:get_player_name(), "I got hit")
+    core.chat_send_player(hitter:get_player_name(), self.message)
 end
 
 core.register_entity("entity_mod:entity", entity)
